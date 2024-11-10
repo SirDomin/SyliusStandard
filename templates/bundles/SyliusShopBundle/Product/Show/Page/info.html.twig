@@ -1,0 +1,16 @@
+<div class="row g-3 g-lg-5 mb-6">
+    {% hook 'info' %}
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const quantityInput = document.querySelector('#sylius_shop_add_to_cart_cartItem_quantity');
+
+            if (quantityInput) {
+                quantityInput.addEventListener('change', function () {
+                    if (parseInt(quantityInput.value, 10) === 70) {
+                        alert('Great Choice!');
+                    }
+                });
+            }
+        });
+    </script>
+</div>
