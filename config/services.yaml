@@ -2,7 +2,7 @@ services:
     # Default configuration for services in *this* file
     _defaults:
         # Automatically injects dependencies in your services
-        autowire: true
+        autowire: false
 
         # Automatically registers your services as commands, event subscribers, etc.
         autoconfigure: true
@@ -28,3 +28,9 @@ services:
     App\Controller\:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
+
+    App\Form\Extension\CartItemTypeExtension:
+        arguments:
+            $orderItemQuantityModifierLimit: '%sylius.order_item_quantity_modifier.limit%'
+        tags:
+            - { name: form.type_extension, priority: 90 }
